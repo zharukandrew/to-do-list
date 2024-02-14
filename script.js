@@ -31,3 +31,4 @@ todolistButton.addEventListener("click", listInput);
 texts.addEventListener("click", del);
 renderTasks();
 export{tasks,texts}
+
