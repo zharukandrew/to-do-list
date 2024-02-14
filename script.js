@@ -1,7 +1,9 @@
+import { renderTasks } from "./renderFunction/render.js";
+
 const tasks = [];
 const input = document.querySelector(".todolist__input");
 const texts = document.querySelector(".text");
-const todolistButton = document.querySelector(".todolist__button")
+const todolistButton = document.querySelector(".todolist__button");
 
 const listInput = () => {
   const inputValue = input.value;
@@ -25,20 +27,7 @@ const del = (event) => {
   }
 };
 
-const renderTasks = () => {
-  let taskList = "";
-  tasks.forEach((task, index) => {
-    const completedClass = task.completed ? "completed" : "";
-    const taskElement = `
-      <li data-index="${index}">
-        <p class="text__page ${completedClass}">${task.text}<span class="span">&#10007</span></p>
-      </li>`;
-    taskList += taskElement;
-  });
-  texts.innerHTML = taskList;
-};
-
 todolistButton.addEventListener("click", listInput);
 texts.addEventListener("click", del);
-
 renderTasks();
+export{tasks,texts}
