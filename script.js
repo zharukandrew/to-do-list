@@ -1,9 +1,35 @@
 import { renderTasks } from "./renderFunction/render.js";
+import { get ,post} from "./request/request.js";
+//const tasks = [];
+let tasks = [
+  {
+    text: "Купить чай"
+  },
+  {
+    text: "Заварить чай"
+  },
+  {
+    text: "Выпить чай"
+  }
+];
 
-const tasks = [];
+
 const input = document.querySelector(".todolist__input");
 const texts = document.querySelector(".text");
 const todolistButton = document.querySelector(".todolist__button");
+const person = {
+  name: " Andrew",
+  age: 29,
+  isActive: false,
+  skills: ['javascript', 'php']
+}
+
+const jsonPerson = JSON.stringify(person);
+console.log(jsonPerson);
+
+const personFromJson = (JSON.parse(jsonPerson))
+
+
 
 const listInput = () => {
   const inputValue = input.value;
@@ -30,5 +56,7 @@ const del = (event) => {
 todolistButton.addEventListener("click", listInput);
 texts.addEventListener("click", del);
 renderTasks();
-export{tasks,texts}
+get();
+post();
+export{tasks,texts,person,personFromJson}
 
