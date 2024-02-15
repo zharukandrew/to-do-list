@@ -1,6 +1,11 @@
 import { renderTasks } from "./renderFunction/render.js";
 import { get ,post} from "./request/request.js";
-//const tasks = [];
+
+
+
+const input = document.querySelector(".todolist__input");
+const texts = document.querySelector(".text");
+const todolistButton = document.querySelector(".todolist__button");
 let tasks = [
   {
     text: "Купить чай"
@@ -13,10 +18,6 @@ let tasks = [
   }
 ];
 
-
-const input = document.querySelector(".todolist__input");
-const texts = document.querySelector(".text");
-const todolistButton = document.querySelector(".todolist__button");
 const person = {
   name: " Andrew",
   age: 29,
