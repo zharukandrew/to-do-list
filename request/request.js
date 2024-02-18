@@ -1,47 +1,45 @@
 
 
+import { renderTasks } from "../renderFunction/render.js";
+import { tasks, texts } from "../script.js";
+
 const get = () => {
     fetch("https://webdev-hw-api.vercel.app/api/todos", {
         method: "GET"
     })
     .then((response) => {
-        if (!response.ok) {
-            throw new Error("Ошибка при получении данных");
-        }
         return response.json();
     })
     .then((responseData) => {
-        // Handle the response data here
         console.log(responseData);
     })
     .catch((error) => {
         console.error(error);
     });
+    renderTasks();
 };
 
-const post = () => {
+const post = (taskText) => {
     fetch("https://webdev-hw-api.vercel.app/api/todos", {
         method: "POST",
         headers: {
             'Content-type': 'application/activity+json'
         },
         body: JSON.stringify({
-            text: "Your task text here"
+            text: taskText,
+            completed: false
         })
     })
     .then((response) => {
-        if (!response.ok) {
-            throw new Error("Ошибка при отправке запроса");
-        }
         return response.json();
     })
     .then((responseData) => {
-        // Handle the response data here
         console.log(responseData);
     })
     .catch((error) => {
         console.error(error);
     });
+    renderTasks();
 };
 
 export { get, post };

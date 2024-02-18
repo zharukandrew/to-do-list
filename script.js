@@ -32,16 +32,23 @@ const personFromJson = (JSON.parse(jsonPerson))
 
 
 
+// const listInput = () => {
+//   const inputValue = input.value;
+//   if (inputValue !== "") {
+//     const newTask = {
+//       text: inputValue,
+//       completed: false
+//     };
+//     tasks.push(newTask);
+//     renderTasks();
+//     input.value = "";
+//   }
+// };
 const listInput = () => {
   const inputValue = input.value;
   if (inputValue !== "") {
-    const newTask = {
-      text: inputValue,
-      completed: false
-    };
-    tasks.push(newTask);
-    renderTasks();
-    input.value = "";
+      post(inputValue); // Call post function with the new task text
+      input.value = "";
   }
 };
 
